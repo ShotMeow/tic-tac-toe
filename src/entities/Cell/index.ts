@@ -1,3 +1,3 @@
-export { default as cellsReducer, gameMove } from "./slices";
-export type { PlayerType } from "./types";
+export { default as cellsReducer, clearCells } from "./slices";
 export { getCells } from "./selectors";
+export { gameMoveThunk } from "./thunks";

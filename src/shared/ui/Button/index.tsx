@@ -3,18 +3,22 @@ import classNames from "classnames";
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   cell?: boolean;
-  primary?: boolean;
+  yellow?: boolean;
+  cyan?: boolean;
   secondary?: boolean;
   big?: boolean;
+  disabled?: boolean;
 }
 
 export const Button: FC<PropsWithChildren<Props>> = ({
   children,
   cell,
   big,
-  primary,
+  yellow,
+  cyan,
   secondary,
   className,
+  disabled = false,
   ...props
 }) => {
   return (
@@ -23,11 +27,14 @@ export const Button: FC<PropsWithChildren<Props>> = ({
         {
           "bg-slate-700 border-slate-800 text-slate-400": cell,
           "border-b-8 rounded-2xl": big,
-          "bg-yellow-600 border-yellow-700 text-slate-800": primary,
-          "bg-slate-400 border-slate-500 text-slate-800": secondary,
+          "bg-yellow-500 border-yellow-600 text-slate-800": yellow,
+          "bg-cyan-600 border-cyan-700 text-slate-800": cyan,
+          "bg-slate-300 border-slate-400 text-slate-800": secondary,
+          "border-b-0": disabled,
         },
-        `flex items-center justify-center rounded-lg border-b-4 font-semibold uppercase gap-2 active:border-b-0 shadow-2xl ${className}`
+        `flex items-center justify-center rounded-lg border-b-4 font-bold uppercase gap-2 [&:not(&:disabled)]:active:border-b-0 shadow-2xl ${className}`
       )}
+      disabled={disabled}
       {...props}
     >
       {children}

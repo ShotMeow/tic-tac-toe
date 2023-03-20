@@ -1,15 +1,16 @@
+import { PlayerTypeEnum } from "@/shared/types";
+import { GameType } from "@/entities/Game/types";
+
 export interface CellType {
   id: number;
-  playerPressed: boolean;
-  cpuPressed: boolean;
+  circlePressed: boolean;
+  crossPressed: boolean;
 }
-
-export enum PlayerType {
-  USER,
-  CPU,
-}
-
 export interface MoveType {
   cellId: number;
-  player: PlayerType;
+  player: PlayerTypeEnum;
+}
+
+export interface CellThunkType extends MoveType {
+  game: GameType;
 }

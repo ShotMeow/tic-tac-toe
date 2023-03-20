@@ -7,11 +7,11 @@ import {
 } from "@reduxjs/toolkit";
 
 import { cellsReducer } from "@/entities/Cell";
-import { scoreReducer } from "@/entities/Score";
+import { gameReducer } from "@/entities/Game";
 
 const reducer = combineReducers({
   cells: cellsReducer,
-  score: scoreReducer,
+  game: gameReducer,
 });
 
 export const store = configureStore({
